@@ -1,11 +1,8 @@
 /* ============================================
-   California Animal Shelter Crisis
-   Theme: Urgent & Impactful (Dark)
+   California Animal Shelter Crisis — Dark Urgent Theme
    ============================================ */
 
-/* ---------- Google Font (add to <head>):
-   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
----------- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
 
 /* ---------- Reset & Base ---------- */
 *, *::before, *::after {
@@ -15,11 +12,10 @@
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: 'Inter', sans-serif;
   background-color: #1a1a2e;
   color: #e0e0e0;
   line-height: 1.7;
-  -webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -32,313 +28,169 @@ a:hover {
   color: #ff6b81;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-/* ---------- Layout ---------- */
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-}
-
-section {
-  padding: 3rem 0;
-}
-
-/* ---------- Header / Hero ---------- */
-header {
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 40%, #0f3460 100%);
-  padding: 3.5rem 2rem 3rem;
+/* ---------- Header ---------- */
+.site-header {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  padding: 3rem 2rem;
   text-align: center;
   border-bottom: 4px solid #e94560;
-  position: relative;
-  overflow: hidden;
 }
 
-header::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 30% 50%, rgba(233, 69, 96, 0.08) 0%, transparent 50%);
-  pointer-events: none;
-}
-
-header h1 {
+.site-header h1 {
   font-size: 2.4rem;
   font-weight: 900;
   color: #ffffff;
-  letter-spacing: 0.5px;
   margin-bottom: 0.75rem;
-  position: relative;
 }
 
-header p,
-header .subtitle {
-  color: #a0aec0;
+.site-header .subtitle {
+  color: #a0a0b8;
   font-size: 1.05rem;
-  max-width: 680px;
+  max-width: 700px;
   margin: 0 auto 1.5rem;
-  position: relative;
 }
 
-/* ---------- Navigation Buttons ---------- */
-.nav-buttons {
+/* ---------- Navigation ---------- */
+.nav {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap;
   margin-top: 1rem;
-  position: relative;
 }
 
-.btn {
+.nav a {
   display: inline-block;
   background-color: #e94560;
   color: #ffffff;
-  padding: 0.75rem 1.75rem;
-  border: none;
+  padding: 0.6rem 1.6rem;
   border-radius: 6px;
   font-weight: 700;
   font-size: 0.95rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  text-decoration: none;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
-.btn:hover {
+.nav a:hover {
   background-color: #c81e45;
   color: #ffffff;
   transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(233, 69, 96, 0.35);
 }
 
-.btn-secondary {
-  background-color: transparent;
-  border: 2px solid #e94560;
-  color: #e94560;
-}
-
-.btn-secondary:hover {
-  background-color: #e94560;
-  color: #ffffff;
+/* ---------- Main Container ---------- */
+.container {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
 }
 
 /* ---------- Cards ---------- */
 .card {
   background: #16213e;
-  border: 1px solid rgba(15, 52, 96, 0.6);
+  border: 1px solid #0f3460;
   border-left: 4px solid #e94560;
   border-radius: 10px;
   padding: 2rem;
-  margin: 1.5rem 0;
-  transition: transform 0.2s, box-shadow 0.2s;
+  margin-bottom: 2rem;
 }
 
-.card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-}
-
-.card h2,
-.card h3 {
+.card h2 {
   color: #e94560;
-  font-weight: 700;
+  font-size: 1.5rem;
+  font-weight: 800;
   margin-bottom: 0.75rem;
-  font-size: 1.4rem;
 }
 
 .card p {
-  color: #c0c0c0;
+  color: #c0c0d0;
+  font-size: 1rem;
   line-height: 1.8;
 }
 
-/* ---------- Stat Callout Strip ---------- */
+/* ---------- Iframe / Dashboard Embed ---------- */
+.iframe-wrap {
+  position: relative;
+  width: 100%;
+  padding-bottom: 65%;
+  margin-top: 1rem;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 2px solid #0f3460;
+}
+
+.iframe-wrap iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ---------- Stat Strip (optional — add to HTML if you want) ---------- */
 .stat-strip {
   display: flex;
   justify-content: center;
-  gap: 2.5rem;
-  flex-wrap: wrap;
-  padding: 2.5rem 1.5rem;
+  gap: 3rem;
+  padding: 2rem;
   background: #0f3460;
   border-top: 3px solid #e94560;
   border-bottom: 3px solid #e94560;
-  margin: 2rem 0;
-  border-radius: 8px;
+  border-radius: 10px;
+  margin-bottom: 2rem;
 }
 
 .stat {
   text-align: center;
-  min-width: 140px;
 }
 
 .stat-number {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 900;
   color: #e94560;
-  line-height: 1.2;
-}
-
-.stat-label {
-  color: #a0aec0;
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-top: 0.25rem;
-}
-
-/* ---------- Section Headings ---------- */
-h2.section-title {
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
-  border-bottom: 3px solid #e94560;
-  display: inline-block;
-}
-
-/* ---------- Embedded Dashboard / Map iframes ---------- */
-.embed-container {
-  background: #16213e;
-  border: 1px solid #0f3460;
-  border-radius: 10px;
-  overflow: hidden;
-  margin: 1.5rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-}
-
-.embed-container h2 {
-  color: #e94560;
-  font-weight: 700;
-  padding: 1.25rem 1.5rem 0;
-  font-size: 1.3rem;
-}
-
-.embed-container iframe {
-  width: 100%;
-  min-height: 600px;
-  border: none;
   display: block;
 }
 
-/* ---------- Blockquote / Callout ---------- */
-blockquote,
-.callout {
-  background: rgba(233, 69, 96, 0.08);
-  border-left: 4px solid #e94560;
-  padding: 1.25rem 1.5rem;
-  margin: 1.5rem 0;
-  border-radius: 0 8px 8px 0;
-  font-style: italic;
-  color: #d0d0d0;
-}
-
-/* ---------- Tables ---------- */
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-  font-size: 0.95rem;
-}
-
-thead {
-  background: #0f3460;
-}
-
-th {
-  color: #e94560;
-  text-transform: uppercase;
+.stat-label {
+  color: #a0a0b8;
   font-size: 0.8rem;
-  letter-spacing: 0.5px;
-  padding: 0.75rem 1rem;
-  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-td {
-  padding: 0.75rem 1rem;
-  border-bottom: 1px solid rgba(15, 52, 96, 0.5);
-  color: #c0c0c0;
-}
-
-tbody tr:hover {
-  background: rgba(15, 52, 96, 0.3);
-}
-
-/* ---------- Footer ---------- */
+/* ---------- Footer (optional) ---------- */
 footer {
-  background: #0d1b2a;
-  border-top: 3px solid #e94560;
-  padding: 2rem;
   text-align: center;
-  color: #606a7a;
+  padding: 2rem;
+  color: #606080;
   font-size: 0.85rem;
+  border-top: 1px solid #0f3460;
   margin-top: 3rem;
 }
 
-footer a {
-  color: #e94560;
-}
-
-/* ---------- Utility ---------- */
-.text-center { text-align: center; }
-.text-muted  { color: #a0aec0; }
-.text-accent { color: #e94560; }
-.mt-1 { margin-top: 0.5rem; }
-.mt-2 { margin-top: 1rem; }
-.mt-3 { margin-top: 1.5rem; }
-.mb-2 { margin-bottom: 1rem; }
-.mb-3 { margin-bottom: 1.5rem; }
-
 /* ---------- Responsive ---------- */
 @media (max-width: 768px) {
-  header h1 {
+  .site-header h1 {
     font-size: 1.6rem;
   }
 
-  header p {
-    font-size: 0.95rem;
+  .site-header .subtitle {
+    font-size: 0.9rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .stat-strip {
+    flex-direction: column;
     gap: 1.5rem;
-    padding: 1.5rem 1rem;
-  }
-
-  .stat-number {
-    font-size: 2rem;
   }
 
   .card {
     padding: 1.25rem;
-  }
-
-  .embed-container iframe {
-    min-height: 400px;
-  }
-}
-
-@media (max-width: 480px) {
-  header {
-    padding: 2rem 1rem;
-  }
-
-  .nav-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .btn {
-    width: 100%;
-    max-width: 280px;
-    text-align: center;
   }
 }
 
