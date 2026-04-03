@@ -1,5 +1,6 @@
 /* ============================================
-   California Animal Shelter Crisis — Dark Urgent Theme
+   California Animal Shelter Crisis
+   Dark Urgent Colors + Soft Rounded Layout
    ============================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
@@ -13,8 +14,8 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: #1a1a2e;
-  color: #e0e0e0;
+  background-color: #111827;
+  color: #d1d5db;
   line-height: 1.7;
 }
 
@@ -31,7 +32,7 @@ a:hover {
 /* ---------- Header ---------- */
 .site-header {
   background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  padding: 3rem 2rem;
+  padding: 3rem 2rem 2.5rem;
   text-align: center;
   border-bottom: 4px solid #e94560;
 }
@@ -40,11 +41,11 @@ a:hover {
   font-size: 2.4rem;
   font-weight: 900;
   color: #ffffff;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
 }
 
 .site-header .subtitle {
-  color: #a0a0b8;
+  color: #9ca3af;
   font-size: 1.05rem;
   max-width: 700px;
   margin: 0 auto 1.5rem;
@@ -62,36 +63,37 @@ a:hover {
   display: inline-block;
   background-color: #e94560;
   color: #ffffff;
-  padding: 0.6rem 1.6rem;
-  border-radius: 6px;
+  padding: 0.65rem 1.8rem;
+  border-radius: 50px;
   font-weight: 700;
   font-size: 0.95rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  transition: background-color 0.2s, transform 0.2s;
+  letter-spacing: 0.3px;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.3);
 }
 
 .nav a:hover {
   background-color: #c81e45;
   color: #ffffff;
   transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(233, 69, 96, 0.4);
 }
 
 /* ---------- Main Container ---------- */
 .container {
   max-width: 1100px;
-  margin: 2rem auto;
+  margin: 2.5rem auto;
   padding: 0 1.5rem;
 }
 
 /* ---------- Cards ---------- */
 .card {
-  background: #16213e;
-  border: 1px solid #0f3460;
-  border-left: 4px solid #e94560;
-  border-radius: 10px;
-  padding: 2rem;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 16px;
+  padding: 2rem 2.5rem;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .card h2 {
@@ -102,7 +104,7 @@ a:hover {
 }
 
 .card p {
-  color: #c0c0d0;
+  color: #b0b8c8;
   font-size: 1rem;
   line-height: 1.8;
 }
@@ -113,9 +115,10 @@ a:hover {
   width: 100%;
   padding-bottom: 65%;
   margin-top: 1rem;
-  border-radius: 8px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 2px solid #0f3460;
+  border: 2px solid #334155;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 .iframe-wrap iframe {
@@ -127,7 +130,7 @@ a:hover {
   border: none;
 }
 
-/* ---------- Stat Strip (optional — add to HTML if you want) ---------- */
+/* ---------- Stat Strip (optional) ---------- */
 .stat-strip {
   display: flex;
   justify-content: center;
@@ -136,8 +139,9 @@ a:hover {
   background: #0f3460;
   border-top: 3px solid #e94560;
   border-bottom: 3px solid #e94560;
-  border-radius: 10px;
+  border-radius: 16px;
   margin-bottom: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 .stat {
@@ -152,7 +156,7 @@ a:hover {
 }
 
 .stat-label {
-  color: #a0a0b8;
+  color: #9ca3af;
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -162,9 +166,9 @@ a:hover {
 footer {
   text-align: center;
   padding: 2rem;
-  color: #606080;
+  color: #6b7280;
   font-size: 0.85rem;
-  border-top: 1px solid #0f3460;
+  border-top: 1px solid #1e293b;
   margin-top: 3rem;
 }
 
