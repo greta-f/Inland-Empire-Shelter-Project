@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>California Animal Shelter Crisis: Inland Empire</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>California Animal Shelter Crisis: Inland Empire</h1>
+    <p class="subtitle">
+      A web GIS project examining shelter distribution, county-level outcomes,
+      and broader state intake trends.
+    </p>
+    <nav class="nav">
+      <a href="index.html">Dashboard</a>
+      <a href="leaflet-map.html">Leaflet Map</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="card">
+      <h2>Project Overview</h2>
+      <p>
+        This project maps animal shelter locations in the Inland Empire and compares
+        county-level shelter statistics with broader state trends. The dashboard below
+        focuses on Riverside and San Bernardino counties, while the Leaflet page provides
+        an interactive web map depicting some Riverside and San Bernardino serving rescues.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>ArcGIS Dashboard</h2>
+      <div class="iframe-wrap">
+        <iframe
+          src="https://univredlandshub.maps.arcgis.com/home/item.html?id=4867be86da554b43ba563b95e802e8e7"
+          title="ArcGIS Dashboard"
+          loading="lazy"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
