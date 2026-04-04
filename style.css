@@ -49,9 +49,10 @@ a:hover {
 
 .site-header .subtitle {
   color: #9ca3af;
-  font-size: 1.05rem;
-  max-width: 700px;
+  font-size: 1rem;
+  max-width: 720px;
   margin: 0 auto 1.5rem;
+  font-weight: 400;
 }
 
 /* ---------- Navigation ---------- */
