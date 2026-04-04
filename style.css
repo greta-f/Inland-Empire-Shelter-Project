@@ -114,11 +114,14 @@ a:hover {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
 }
 
+
 .card h2 {
+  font-family: 'Calistoga', serif;
   color: #e94560;
-  font-size: 1.5rem;
-  font-weight: 800;
-  margin-bottom: 0.75rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-bottom: 0.9rem;
+  letter-spacing: 0.4px;
 }
 
 .card p {
