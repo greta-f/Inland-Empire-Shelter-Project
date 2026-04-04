@@ -29,31 +29,6 @@ a:hover {
 }
 
 /* ---------- Header ---------- */
-.site-header:before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-
-  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-}
-
-.site-header:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 120px;
-
-  background: url('joshua.png') no-repeat bottom left;
-  background-size: contain;
-
-  opacity: 0.7;
-  pointer-events: none;
-}
 
 .site-header h1 {
   font-family: 'Calistoga', serif;
