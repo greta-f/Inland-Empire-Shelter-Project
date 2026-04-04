@@ -29,7 +29,7 @@ a:hover {
 }
 
 /* ---------- Header ---------- */
-.site-header::before {
+.site-header:before {
   content: "";
   position: absolute;
   bottom: 0;
@@ -40,7 +40,7 @@ a:hover {
   background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
 }
 
-.site-header::after {
+.site-header:after {
   content: "";
   position: absolute;
   bottom: 0;
