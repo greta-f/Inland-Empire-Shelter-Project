@@ -96,10 +96,10 @@ a:hover {
 .card {
   background: #1e293b;
   border: 1px solid #334155;
-  border-radius: 20px;
+  border-radius: 22px;
   padding: 2rem 2.5rem;
   margin-bottom: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.35);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -107,7 +107,7 @@ a:hover {
   max-width: 1600px;  
   margin-left: auto;
   margin-right: auto;
-  border-radius: 20px; 
+  border-radius: 22px; 
 }
 
 .card:hover {
