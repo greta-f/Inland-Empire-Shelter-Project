@@ -147,6 +147,26 @@ a:hover {
   border: none;
 }
 
+.sources-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.sources-list li {
+  margin-bottom: 0.8rem;
+  color: #b0b8c8;
+}
+
+.sources-list a {
+  margin-left: 8px;
+  font-weight: 600;
+  color: #e94560;
+}
+
+.sources-list a:hover {
+  text-decoration: underline;
+}
+
 /* ---------- Stat Strip (optional) ---------- */
 .stat-strip {
   display: flex;
