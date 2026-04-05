@@ -5,12 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Animal Shelter Locator Map | California Animal Shelter Crisis</title>
   <link rel="stylesheet" href="style.css" />
+  <script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
 </head>
 <body>
   <header class="site-header">
     <h1>Animal Shelter Locator Map</h1>
     <p class="subtitle">
-      Riverside and San Bernardino County shelters and Service Areas
+      Riverside and San Bernardino County shelters and service areas
     </p>
     <nav class="nav">
       <a href="index.html">About</a>
@@ -24,15 +25,21 @@
   <main class="container">
     <section class="card dashboard-card">
       <h2>Animal Shelter Locator Map</h2>
-      <div class="iframe-wrap">
-        <iframe
-          src="https://univredlandshub.maps.arcgis.com/apps/dashboards/4867be86da554b43ba563b95e802e8e7#mode=edit"
-          title="Animal Shelter Locator Map"
-          loading="lazy"
-          allowfullscreen>
-        </iframe>
+
+      <div class="map-wrap">
+        <arcgis-embedded-map
+          item-id="b978291231cf49e9b7a88251af80c589"
+          theme="light"
+          legend-enabled
+          information-enabled
+          time-zone-label-enabled
+          center="-115.55865125006802,34.45535546152127"
+          scale="2311162.2171545"
+          portal-url="https://univredlandshub.maps.arcgis.com">
+        </arcgis-embedded-map>
       </div>
     </section>
   </main>
 </body>
 </html>
+Add this to your CSS
