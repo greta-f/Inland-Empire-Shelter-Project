@@ -125,6 +125,21 @@ a:hover {
 }
 
 /* ---------- Iframe / Dashboard Embed ---------- */
+.map-wrap {
+  width: 100%;
+  height: 85vh;
+  margin-top: 1rem;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1.5px solid #334155;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+}
+
+.map-wrap arcgis-embedded-map {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
 .iframe-wrap {
   width: 100%;
   height: 100vh;
