@@ -42,7 +42,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 // CSV //
-fetch('Shelters_Final.csv')
+fetch('Shelters_final.csv')
   .then(res => res.text())
   .then(csv => {
     const rows = csv.split("\n").slice(1);
