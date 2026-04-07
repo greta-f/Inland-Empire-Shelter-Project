@@ -1,1 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leaflet Shelter Map</title>
 
+  <link rel="stylesheet" href="style.css" />
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+
+<body>
+
+<header class="site-header">
+  <h1>Shelter Locator Map</h1>
+  <p class="subtitle">Interactive map of Inland Empire animal shelters</p>
+
+  <nav class="nav">
+    <a href="index.html">About</a>
+    <a href="dashboard1.html">Web Map</a>
+    <a href="dashboard2.html">State Dashboard</a>
+    <a href="dashboard3.html">Shelter Dashboard</a>
+    <a href="leaflet-map.html">Leaflet Map</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section class="card dashboard-card">
+    <h2>Leaflet Shelter Map</h2>
+
+    <div id="map" style="height: 80vh; border-radius: 18px;"></div>
+  </section>
+</main>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+<script>
+var map = L.map('map').setView([34.05, -117.3], 8);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+// CSV //
+fetch('Shelters_Final.csv')
+  .then(res => res.text())
+  .then(csv => {
+    const rows = csv.split("\n").slice(1);
+
+    rows.forEach(row => {
+      const cols = row.split(",");
+
+      const name = cols[0];
+      const lat = parseFloat(cols[4]);
+      const lng = parseFloat(cols[5]);
+
+      if (!isNaN(lat) && !isNaN(lng)) {
+        L.marker([lat, lng])
+          .addTo(map)
+          .bindPopup(`<b>${name}</b>`);
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
