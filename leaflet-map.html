@@ -70,11 +70,11 @@
         if (!isNaN(lat) && !isNaN(lng)) {
           L.marker([lat, lng], { icon: pawDivIcon })
             .addTo(map)
-            .bindPopup(`
-              <b>${name || 'Shelter'}</b><br>
-              ${city || ''}${city && county ? ', ' : ''}${county || ''}<br>
-              ${address || ''}
-            `);
+              .bindPopup(`
+              <b>${name}</b><br>
+               ${address}<br>
+                ${city}, ${county}
+                  `);
         }
       });
     })
