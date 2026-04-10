@@ -181,19 +181,21 @@ a:hover {
   box-shadow: 0 0 14px rgba(233, 69, 96, 0.6);
 }
 
-.marker-cluster {
+.marker-cluster-small,
+.marker-cluster-medium,
+.marker-cluster-large {
   background: rgba(233, 69, 96, 0.2);
-  border: 2px solid #e94560;
-  border-radius: 50%;
-  color: #ffffff;
 }
 
-.marker-cluster div {
+.marker-cluster-small div,
+.marker-cluster-medium div,
+.marker-cluster-large div {
   background: #e94560;
-  border-radius: 50%;
-  color: #ffffff;
+  color: white;
   font-weight: bold;
+  border-radius: 50%;
 }
+
 .sources-list {
   list-style: none;
   padding-left: 0;
