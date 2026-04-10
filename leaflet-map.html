@@ -54,13 +54,16 @@
 
   const legend = L.control({ position: 'bottomright' });
 
+const legend = L.control({ position: 'bottomright' });
+
 legend.onAdd = function () {
   const div = L.DomUtil.create('div', 'info legend');
   div.innerHTML = `
     <h4>Shelter Legend</h4>
     <div><span class="legend-paw">🐾</span> Single shelter</div>
-    <div><span class="legend-cluster">3</span> Clustered shelters</div>
-    <div class="legend-note">Number = shelters in that cluster</div>
+    <div><span class="legend-green">3</span> Small cluster</div>
+    <div><span class="legend-yellow">8</span> Larger cluster</div>
+    <div class="legend-note">Number = shelters in cluster</div>
   `;
   return div;
 };
