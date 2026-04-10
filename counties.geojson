@@ -1,0 +1,41 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Riverside County"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-117.676, 33.426],
+          [-116.080, 33.426],
+          [-114.435, 33.426],
+          [-114.435, 34.080],
+          [-115.830, 34.080],
+          [-117.676, 34.080],
+          [-117.676, 33.426]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "San Bernardino County"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-118.000, 34.100],
+          [-116.000, 34.100],
+          [-114.100, 34.100],
+          [-114.100, 35.800],
+          [-116.500, 35.800],
+          [-118.000, 35.800],
+          [-118.000, 34.100]
+        ]]
+      }
+    }
+  ]
+}
