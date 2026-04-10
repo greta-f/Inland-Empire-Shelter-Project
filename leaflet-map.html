@@ -7,7 +7,9 @@
 
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-</head>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
+</head> 
 
 <body>
 
@@ -30,6 +32,7 @@
 </main>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 
 <script>
   const map = L.map('map').setView([34.05, -117.3], 8);
@@ -38,8 +41,10 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  // marker //
-const pawDivIcon = L.divIcon({
+  const markers = L.markerClusterGroup();
+  const bounds = [];
+
+  const pawDivIcon = L.divIcon({
     className: '',
     html: '<div class="paw-marker"></div>',
     iconSize: [28, 28],
@@ -68,18 +73,27 @@ const pawDivIcon = L.divIcon({
         const lng = parseFloat(cols[5]);
 
         if (!isNaN(lat) && !isNaN(lng)) {
-          L.marker([lat, lng], { icon: pawDivIcon })
-            .addTo(map)
+          bounds.push([lat, lng]);
+
+          const marker = L.marker([lat, lng], { icon: pawDivIcon })
             .bindPopup(`
-            <b>${name}</b><br>
-            <span style="color:#9ca3af;">${address}</span><br>
-            <span style="font-size:0.9rem;">${city}, ${county}</span><br><br>
-            <a href="https://www.google.com/maps?q=${lat},${lng}" target="_blank" style="color:#e94560; font-weight:600;">
-            Open in Google Maps →
-            </a>
-            `)
+              <b>${name}</b><br>
+              <span style="color:#9ca3af;">${address}</span><br>
+              <span style="font-size:0.9rem;">${city}, ${county}</span><br><br>
+              <a href="https://www.google.com/maps?q=${lat},${lng}" target="_blank" style="color:#e94560; font-weight:600;">
+                Open in Google Maps →
+              </a>
+            `);
+
+          markers.addLayer(marker);
         }
       });
+
+      map.addLayer(markers);
+
+      if (bounds.length > 0) {
+        map.fitBounds(bounds, { padding: [40, 40] });
+      }
     })
     .catch(err => {
       console.error('CSV load error:', err);
