@@ -240,6 +240,32 @@ a:hover {
   font-weight: 700;
 }
 
+.legend-green {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #22c55e;
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.legend-yellow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #eab308;
+  color: #111827;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
 .legend-note {
   margin-top: 6px;
   font-size: 0.8rem;
