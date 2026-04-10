@@ -68,7 +68,7 @@
         const lng = parseFloat(cols[5]);
 
         if (!isNaN(lat) && !isNaN(lng)) {
-          L.marker([lat, lng], { icon: pawDivIcon })
+          L.marker([lat, lng], { icon: dogIcon })
             .addTo(map)
             .bindPopup(`
             <b>${name}</b><br>
