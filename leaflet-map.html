@@ -52,6 +52,21 @@
     popupAnchor: [0, -12]
   });
 
+  const legend = L.control({ position: 'bottomright' });
+
+legend.onAdd = function () {
+  const div = L.DomUtil.create('div', 'info legend');
+  div.innerHTML = `
+    <h4>Shelter Legend</h4>
+    <div><span class="legend-paw">🐾</span> Single shelter</div>
+    <div><span class="legend-cluster">3</span> Clustered shelters</div>
+    <div class="legend-note">Number = shelters in that cluster</div>
+  `;
+  return div;
+};
+
+legend.addTo(map);
+
   fetch('Shelters_final.csv')
     .then(res => {
       if (!res.ok) {
