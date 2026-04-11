@@ -41,20 +41,40 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-  fetch('counties.geojson')
-  .then(res => res.json())
-  .then(data => {
-    L.geoJSON(data, {
-      style: {
-        color: '#9ca3af',
-        weight: 2,
-        fillOpacity: 0
-      },
-      onEachFeature: function (feature, layer) {
-        layer.bindPopup(feature.properties.name);
-      }
-    }).addTo(map);
-  });
+<script>
+  fetch('https://gis.data.ca.gov/api/download/v1/items/60b7e0f3d33b4064a4b43bf14589bfe3/geojson?layers=1')
+    .then(res => {
+      if (!res.ok) throw new Error('Could not load county GeoJSON');
+      return res.json();
+    })
+    .then(data => {
+      const filtered = {
+        type: "FeatureCollection",
+        features: data.features.filter(f =>
+          f.properties &&
+          (
+            f.properties.NAME === "Riverside" ||
+            f.properties.NAME === "San Bernardino"
+          )
+        )
+      };
+
+      L.geoJSON(filtered, {
+        style: {
+          color: '#9ca3af',
+          weight: 2,
+          fillOpacity: 0
+        },
+        onEachFeature: function (feature, layer) {
+          const countyName = feature.properties.NAME + " County";
+          layer.bindPopup(`<b>${countyName}</b>`);
+        }
+      }).addTo(map);
+    })
+    .catch(err => {
+      console.error('County boundary load error:', err);
+    });
+</script>
 
   const markers = L.markerClusterGroup();
   const bounds = [];
