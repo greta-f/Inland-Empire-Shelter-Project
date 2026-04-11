@@ -41,6 +41,21 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
+  fetch('counties.geojson')
+  .then(res => res.json())
+  .then(data => {
+    L.geoJSON(data, {
+      style: {
+        color: '#9ca3af',
+        weight: 2,
+        fillOpacity: 0
+      },
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.name);
+      }
+    }).addTo(map);
+  });
+
   const markers = L.markerClusterGroup();
   const bounds = [];
 
