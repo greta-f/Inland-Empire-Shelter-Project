@@ -15,144 +15,9 @@
 
 <header class="site-header">
   <h1>🐾 Exploring Animal Shelter Distribution in the Inland Empire 🐾</h1>
-  <p class="subtitle">Interactive map of animal shelter distribution across the Inland Empire</p>
-
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Leaflet Shelter Map</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css" />
-  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css" />
-</head> 
-
-<body>
-
-  <nav class="nav">
-    <a href="index.html">About</a>
-    <a href="map1.html">Animal Shelter Locator Map</a>
-    <a href="dashboard.html">2024-2025 Statistics</a>
-    <a href="leaflet-map.html">Shelter Distribution Map</a>
-  </nav>
-</header>
-
-<main class="container">
-  <section class="card dashboard-card">
-    <div id="map"></div>
-  </section>
-
-  <section class="card dashboard-card">
-    <h2>Shelter Distribution Map</h2>
-    <p>
-      This map visualizes the distribution of animal shelters across Riverside and San Bernardino Counties. 
-      Clustering highlights areas with higher concentrations of shelters, particularly in more urbanized regions 
-      of the Inland Empire. In contrast, rural and desert areas show fewer shelters, indicating potential gaps 
-      in accessibility and resource availability.
-    </p>
-
-    <p>
-      The interactive design allows users to explore individual shelter locations, view address information, 
-      and access directions through Google Maps, providing both spatial insight and practical utility.
-    </p>
-
-    <p>
-      <em>
-        Although Inland Valley Humane Society is located in Pomona within Los Angeles County, its geographic proximity to the Inland Empire allows it to serve populations in both Riverside and San Bernardino Counties, highlighting the importance of cross-county resource networks.
-      </em>
-    </p>
-  </section>
-</main>
-
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
-
-<script>
-  const map = L.map('map').setView([34.05, -117.3], 8);
-
-L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
-
-  const markers = L.markerClusterGroup();
-  const bounds = [];
-
-  const pawDivIcon = L.divIcon({
-    className: '',
-    html: '<div class="paw-marker"></div>',
-    iconSize: [28, 28],
-    iconAnchor: [14, 14],
-    popupAnchor: [0, -12]
-  });
-
-const legend = L.control({ position: 'bottomright' });
-
-legend.onAdd = function () {
-  const div = L.DomUtil.create('div', 'info legend');
-  div.innerHTML = `
-    <h4>Shelter Legend</h4>
-    <div><span class="legend-paw">🐾</span> Single shelter</div>
-    <div><span class="legend-green">3</span> Small cluster</div>
-    <div><span class="legend-yellow">8</span> Larger cluster</div>
-    <div class="legend-note">Number = shelters in cluster</div>
-  `;
-  return div;
-};
-
-legend.addTo(map);
-
-  fetch('Shelters_final.csv')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Could not load Shelters_final.csv');
-      }
-      return res.text();
-    })
-    .then(csv => {
-      const rows = csv.trim().split('\n').slice(1);
-
-      rows.forEach(row => {
-        const cols = row.split(',');
-
-        const name = cols[0]?.trim();
-        const county = cols[1]?.trim();
-        const city = cols[2]?.trim();
-        const address = cols[3]?.trim();
-        const lat = parseFloat(cols[4]);
-        const lng = parseFloat(cols[5]);
-
-        if (!isNaN(lat) && !isNaN(lng)) {
-          bounds.push([lat, lng]);
-
-          const marker = L.marker([lat, lng], { icon: pawDivIcon })
-            .bindPopup(`
-              <b>${name}</b><br>
-              <span style="color:#9ca3af;">${address}</span><br>
-              <span style="font-size:0.9rem;">${city}, ${county}</span><br><br>
-              <a href="https://www.google.com/maps?q=${lat},${lng}" target="_blank" style="color:#e94560; font-weight:600;">
-                Open in Google Maps →
-              </a>
-            `);
-
-          markers.addLayer(marker);
-        }
-      });
-
-      map.addLayer(markers);
-
-      if (bounds.length > 0) {
-        map.fitBounds(bounds, { padding: [40, 40] });
-      }
-    })
-    .catch(err => {
-      console.error('CSV load error:', err);
-    });
-</script>
-
-</body>
-</html></p>
+  <p class="subtitle">
+    Interactive map of animal shelter distribution across the Inland Empire
+  </p>
 
   <nav class="nav">
     <a href="index.html">About</a>
@@ -169,6 +34,7 @@ legend.addTo(map);
 
   <section class="card dashboard-card">
     <h2>Shelter Distribution Map</h2>
+
     <p>
       This map visualizes the distribution of animal shelters across Riverside and San Bernardino Counties. 
       Clustering highlights areas with higher concentrations of shelters, particularly in more urbanized regions 
@@ -195,9 +61,9 @@ legend.addTo(map);
 <script>
   const map = L.map('map').setView([34.05, -117.3], 8);
 
-L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
   const markers = L.markerClusterGroup();
   const bounds = [];
@@ -210,29 +76,24 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     popupAnchor: [0, -12]
   });
 
-const legend = L.control({ position: 'bottomright' });
+  const legend = L.control({ position: 'bottomright' });
 
-legend.onAdd = function () {
-  const div = L.DomUtil.create('div', 'info legend');
-  div.innerHTML = `
-    <h4>Shelter Legend</h4>
-    <div><span class="legend-paw">🐾</span> Single shelter</div>
-    <div><span class="legend-green">3</span> Small cluster</div>
-    <div><span class="legend-yellow">8</span> Larger cluster</div>
-    <div class="legend-note">Number = shelters in cluster</div>
-  `;
-  return div;
-};
+  legend.onAdd = function () {
+    const div = L.DomUtil.create('div', 'info legend');
+    div.innerHTML = `
+      <h4>Shelter Legend</h4>
+      <div><span class="legend-paw">🐾</span> Single shelter</div>
+      <div><span class="legend-green">3</span> Small cluster</div>
+      <div><span class="legend-yellow">8</span> Larger cluster</div>
+      <div class="legend-note">Number = shelters in cluster</div>
+    `;
+    return div;
+  };
 
-legend.addTo(map);
+  legend.addTo(map);
 
   fetch('Shelters_final.csv')
-    .then(res => {
-      if (!res.ok) {
-        throw new Error('Could not load Shelters_final.csv');
-      }
-      return res.text();
-    })
+    .then(res => res.text())
     .then(csv => {
       const rows = csv.trim().split('\n').slice(1);
 
@@ -268,9 +129,6 @@ legend.addTo(map);
       if (bounds.length > 0) {
         map.fitBounds(bounds, { padding: [40, 40] });
       }
-    })
-    .catch(err => {
-      console.error('CSV load error:', err);
     });
 </script>
 
