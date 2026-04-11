@@ -41,32 +41,6 @@
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
-fetch('https://gis.data.ca.gov/api/download/v1/items/60b7e0f3d33b4064a4b43bf14589bfe3/geojson?layers=1')
-  .then(res => res.json())
-  .then(data => {
-    console.log(data.features[0].properties);
-
-    const filtered = {
-      type: "FeatureCollection",
-      features: data.features.filter(f => {
-        const props = f.properties || {};
-        const value = Object.values(props).join(' ').toLowerCase();
-        return value.includes('riverside') || value.includes('san bernardino');
-      })
-    };
-
-    L.geoJSON(filtered, {
-      style: {
-        color: '#9ca3af',
-        weight: 2,
-        fillOpacity: 0
-      }
-    }).addTo(map);
-  })
-  .catch(err => {
-    console.error('County boundary load error:', err);
-  });
-
   const markers = L.markerClusterGroup();
   const bounds = [];
 
