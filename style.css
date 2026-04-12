@@ -273,6 +273,15 @@ a:hover {
   display: block;
 }
 
+.help-list {
+  margin-top: 1rem;
+  padding-left: 1.5rem;
+}
+
+.help-list li {
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
 .sources-list {
   list-style: none;
   padding-left: 0;
