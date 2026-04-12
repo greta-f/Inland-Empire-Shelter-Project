@@ -282,6 +282,11 @@ a:hover {
   margin-bottom: 0.75rem;
   line-height: 1.5;
 }
+
+.help-list strong {
+  color: #e94560; 
+}
+
 .sources-list {
   list-style: none;
   padding-left: 0;
